@@ -1,14 +1,14 @@
 
-StartArray =     [['Wrook1','Wknight1','Wbishop1','Wqueen','Wking' ,'Wbishop2','Wknight3','Wrook2'],
-                  ['Wpawn1','Wpawn2'  ,'Wpawn3'  ,'Wpawn4','Wpawn5','Wpawn6'  ,'Wpawn7'  ,'Wpawn8'],
-                  [''      ,''        ,''        ,''      ,''      ,''        ,''        ,''      ],
-                  [''      ,''        ,''        ,''      ,''      ,''        ,''        ,''      ],
-                  [''      ,''        ,''        ,''      ,''      ,''        ,''        ,''      ],
-                  [''      ,''        ,''        ,''      ,''      ,''        ,''        ,''      ],
-                  ['Bpawn1','Bpawn2'  ,'Bpawn3'  ,'Bpawn4','Bpawn5','Bpawn6'  ,'Bpawn7'  ,'Bpawn8'],
-                  ['Brook1','Bknight1','Bbishop1','Bking' ,'Bqueen','Bbishop2','Bknight3','Brook2']]
+board =     [['R','N','B','Q','K','B','N','R'],
+                  ['P','P','P','P','P','P','P','P'],
+                  ['-','-','-','-','-','-','-','-'],
+                  ['-','-','-','-','-','-','-','-'],
+                  ['-','-','-','-','-','-','-','-'],
+                  ['-','-','-','-','-','-','-','-'],
+                  ['p','p','p','p','p','p','p','p'],
+                  ['r','n','b','k','q','b','n','r']]
 
-
+print(board)
 def choose_color():
     picked = input("Please select white or black pieces (w/b): ").upper()
     if picked == 'B':
@@ -63,15 +63,15 @@ def pieces():
 def layout():
     Pieces = pieces()
     #for x in StartArray:
-    print(StartArray)
+    print(board)
        # for y in StartArray:
             #if StartArray[x[y]] == 'Wrook1':
                # print(Pieces[2])
 
-def main():
-    layout()
-main()
+#def main():
+#    layout()
+#main()
 
-if "__name__" == '__main__':
-    main()
+#if "__name__" == '__main__':
+#    main()
 
