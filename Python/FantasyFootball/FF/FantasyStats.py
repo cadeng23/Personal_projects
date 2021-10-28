@@ -1,3 +1,4 @@
+import random
 #Size
 Caden = [0,0]
 Mitchell = [0,0]
@@ -59,30 +60,84 @@ Week13,Week14]
 #print(WeeklyMatches)
 d = '          '
 #Cases each week
-def checkWk(Players,Wk):
+def checkWk(Players,Wk, current):
     print('---------------------------------------------------')
-    print('What happened this week?: ')
-    
-    print('Case 1:')
-    print('\n')
-    print(Wk[0][0],': W', end = d)
-    print(Wk[1][0],': W')
-    #print(Wk[0][1],': L', end = d)
-    #print(Wk[1][1],': L')
-    print('\n')
-    print(Wk[2][0],': W',end = d)
-    print(Wk[3][0], ': W')
-    #print(Wk[2][1],': L', end = d)
-    #print(Wk[3][1],': L')
-    print('\n')
-    print(Wk[4][0],': W')
-    #print(Wk[4][1],': L')
+    print('Who won week ', current, '?:')
+    print('0. Caden')
+    print('1. Mitchell')
+    print('2. Nick')
+    print('3. Silva')
+    print('4. Sanges')
+    print('5. Mason Green')
+    print('6. Chaison')
+    print('7. Izzy')
+    print('8. Mason Gilgen')
+    print('9. Tanner')
+    winners = []
+    a,b,c,d,e = input().split()
+    winners.append(a)
+    winners.append(b)
+    winners.append(c)
+    winners.append(d)
+    winners.append(e)
+    for i in winners:
+        if int(i) == 0:
+            Players[0][0] += 1
+        if int(i) == 1:
+            Players[1][0] += 1
+        if int(i) == 2:
+            Players[5][0] += 1
+        if int(i) == 3:
+            Players[8][0] += 1
+        if int(i) == 4:
+            Players[4][0] += 1
+        if int(i) == 5:
+            Players[3][0] += 1
+        if int(i) == 6:
+            Players[9][0] += 1
+        if int(i) == 7:
+            Players[2][0] += 1
+        if int(i) == 8:
+            Players[7][0] += 1
+        if int(i) == 9:
+            Players[6][0] += 1
+    for p in range(0,10):
+        if Players[p][0] + Players[p][1] != current:
+            Players[p][1] += 1
+    for f in Players:
+        print(f)
+    return Players
     
 
+def runProbs(Players, current):
+    left = (current - 1) * 32
+    left = 448 - left
+    print(left)
+    #predict = Players
+    for x in WeekRec:
+        if x >= current:
+            thisWk = WeekRec[x]
+            for a in thisWk:
+                put = random(1,2)
+                if put == 1:
+                    thisWk[0][0] += 1
+                    thisWk[1][1] += 1
+                
 
 def main():
+    current = 1
     for x in WeeklyNames:
         Wk = x
-        checkWk(Players, Wk)
+        checkWk(Players, Wk, current)
+        current += 1
+        print('Is week',current,'the current week?(y/n)',end = ' ')
+        inp = input().upper()
+        if inp == 'Y':
+            runProbs(Players,current)
+            quit()
+        if inp == 'N':
+            continue
+        #current += 1
+        
 
 main()
