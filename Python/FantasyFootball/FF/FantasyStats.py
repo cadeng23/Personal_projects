@@ -1,4 +1,6 @@
 import random
+#TODO: look into NUMpy and see if that can help with the mass data analysis
+
 #Size
 Caden = [0,0]
 Mitchell = [0,0]
@@ -75,7 +77,8 @@ def checkWk(Players,Wk, current,plyrName):
     print('8. Mason Gilgen')
     print('9. Tanner')
     winners = []
-    a,b,c,d,e = input().split()
+    a,b,c,d,e = input('Winners this week:').split()
+    print('---------------------------------------------------')
     winners.append(a)
     winners.append(b)
     winners.append(c)
@@ -107,8 +110,9 @@ def checkWk(Players,Wk, current,plyrName):
             Players[p][1] += 1
     d = 0
     for f in Players:
-        print(plyrName[d], end = '= ')
-        print(f)
+        print(plyrName[d], end = ' = ')
+        print(f[0],end = '-')
+        print(f[1])
         d += 1
     return Players
     
@@ -129,7 +133,8 @@ def runProbs(Players, current):
                 if put == 2:
                     thisWk[0][1] += 1
                     thisWk[1][0] += 1
-                print(thisWk)
+                print(thisWk[0], end = '-')
+                print(thisWk[1])
                 
 
 def main():
