@@ -14,6 +14,7 @@ Chaison = [0,0]
 
 #All Players
 Players = [Caden,Mitchell,Izzy,MasonG,Sanges,Nick,Tanner,Mason,Silva,Chaison]
+plyrName = ['Caden','Mitchell','Izzy','MasonG','Sanges','Nick','Tanner','Mason','Silva','Chaison']
 #print(Players)
 #divisions
 divSize = [Mitchell, MasonG,Sanges, Caden, Izzy]
@@ -60,7 +61,7 @@ Week13,Week14]
 #print(WeeklyMatches)
 d = '          '
 #Cases each week
-def checkWk(Players,Wk, current):
+def checkWk(Players,Wk, current,plyrName):
     print('---------------------------------------------------')
     print('Who won week ', current, '?:')
     print('0. Caden')
@@ -104,8 +105,11 @@ def checkWk(Players,Wk, current):
     for p in range(0,10):
         if Players[p][0] + Players[p][1] != current:
             Players[p][1] += 1
+    d = 0
     for f in Players:
+        print(plyrName[d], end = '= ')
         print(f)
+        d += 1
     return Players
     
 
@@ -122,18 +126,22 @@ def runProbs(Players, current):
                 if put == 1:
                     thisWk[0][0] += 1
                     thisWk[1][1] += 1
+                if put == 2:
+                    thisWk[0][1] += 1
+                    thisWk[1][0] += 1
+                print(thisWk)
                 
 
 def main():
     current = 1
     for x in WeeklyNames:
         Wk = x
-        checkWk(Players, Wk, current)
+        plyr = checkWk(Players, Wk, current, plyrName)
         current += 1
         print('Is week',current,'the current week?(y/n)',end = ' ')
         inp = input().upper()
         if inp == 'Y':
-            runProbs(Players,current)
+            runProbs(plyr,current)
             quit()
         if inp == 'N':
             continue
